@@ -31,11 +31,11 @@ from selenium.webdriver.chrome.service import Service
 fieldOfView = 50
 earthCircumference = 40075017
 
-relativeDistance = input("Input the pixel distance between cloud and shade")
+relativeDistance = input("Input the pixel distance between cloud and shade (px): ")
 
 def distance(fieldOfView, distanceinpixels):
     fieldOfViewRadians = fieldOfView*(pi/180)
-    distanceinmeters = int(distanceinpixels)*((math.tan(fieldOfViewRadians)*400)/3000)*1000
+    distanceinmeters = int(distanceinpixels)*142
     return distanceinmeters
 
 def coordinates(relativeCoordinates, xcorrectionPixels, ycorrectionPixels):
@@ -59,10 +59,10 @@ def link(relativeLatitude, relativeLongitude, date, time):
 
 absoluteDistance = distance(fieldOfView, relativeDistance)
 
-relativeLatitude = input("Input the photo latitude coordinate (xx.x format)")
-relativeLongitude = input("Input the photo longitude coordinate (xx.x format)")
-date = input("Input photo date")
-time = input("Input photo time")
+relativeLatitude = input("Input the photo latitude coordinate (xx.x format): ")
+relativeLongitude = input("Input the photo longitude coordinate (xx.x format): ")
+date = input("Input photo date (yyyy.mm.dd): ")
+time = input("Input photo time (hh:mm:ss): ")
 
 linkstring = link(relativeLatitude, relativeLongitude, date, time)
 options = Options()
